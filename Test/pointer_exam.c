@@ -18,19 +18,18 @@
 #include <stdio.h>
 
 void input_ary(int *pa, int size);
-void swap_ary();
-void print_ary();
+void swap_ary(int* pa, int size);
+void print_ary(int* pa, int size);
 
 int main()
 {
 	int ary[10];
-	int i;
 	int size = sizeof(ary) / sizeof(ary[0]);
 	
 	input_ary(ary, size);
-	printf("\n");
-	printf("바꾸기 전 : ");
+	printf("\n배열출력");
 	swap_ary(ary, size);
+	print_ary(ary, size);
 
 	return 0;
 }
@@ -49,11 +48,26 @@ void input_ary(int *pa, int size)
 	}
 	
 }
-void swap_ary(int* pa, int* pb)
+void swap_ary(int* pa, int size)
 {
+	int temp, i;
+	int* px = pa;
+	int* py = pa + 9;
+
+	for (i = 0; i < 5; i++)
+	{
+		temp = *(px + i);
+		*(px + i) = *(py - i);
+		*(py - i) = temp;
+	}
 
 }
-void print_ary(int* pa, int* pb)
+void print_ary(int* pa, int size)
 {
+	int i;
 
+	for (i = 0; i < size; i++)
+	{
+		printf("%d ", pa[i]);
+	}
 }

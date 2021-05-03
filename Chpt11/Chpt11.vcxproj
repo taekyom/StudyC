@@ -18,11 +18,14 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="11-6.c" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{447fd7ec-fbfa-4490-9a59-8d0bad506c06}</ProjectGuid>
-    <RootNamespace>Test</RootNamespace>
+    <ProjectGuid>{9fbde353-c3b4-407c-817e-2406c46d70fc}</ProjectGuid>
+    <RootNamespace>Chpt11</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

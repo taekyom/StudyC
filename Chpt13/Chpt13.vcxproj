@@ -19,13 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="array_test.c" />
+    <ClCompile Include="13-8.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{447fd7ec-fbfa-4490-9a59-8d0bad506c06}</ProjectGuid>
-    <RootNamespace>Test</RootNamespace>
+    <ProjectGuid>{2c22e371-4b66-4921-8960-8c0978ecb5b4}</ProjectGuid>
+    <RootNamespace>Chpt13</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

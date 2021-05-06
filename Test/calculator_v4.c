@@ -4,6 +4,7 @@
 
 	Created : 2021-04-29
 	Author : 이태경
+	description : 사용자 정의 함수를 이용한 계산기 만들기
 
 */
 #define _CRT_SECURE_NO_WARNINGS
@@ -92,6 +93,5 @@ int div(int a, int b)
 	res = a / b;
 	return res;
 }
-//사용자 정의 함수를 이용한 계산기 만들기
 //사용자 정의 함수 만들 때 void 제외 출력함수는 전부 return 변수; 필요, void일 때는 void로 정의한 함수 안에서 pritnf()를 통해 결과 출력
 //void함수 사용 시 : main 함수 안에서는 호출할 사용자 정의 함수만 작성 

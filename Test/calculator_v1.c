@@ -3,13 +3,14 @@
 
 	Created : 2021-04-28
 	Author : 이태경
+	description : 변수값을 지정한 상태의 계산기
 
 */
 #include <stdio.h>
 
 int main()
 {
-	int a = 98, b = 61;
+	int a = 98, b = 61; //변수값 지정
 	int res;
 
 	/*int sum, sub, mul, inv;*/

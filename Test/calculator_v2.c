@@ -4,6 +4,7 @@
 
 	Created : 2021-04-28
 	Author : 이태경
+	description : 변수값을 입력받아서 연산하는 계산기
 
 */
 #define _CRT_SECURE_NO_WARNINGS

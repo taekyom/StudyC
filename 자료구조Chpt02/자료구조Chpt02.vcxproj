@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -19,17 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="19-10_point.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="19-10_line.h" />
-    <ClCompile Include="19-10_main.c" />
+    <ClCompile Include="2-13.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{05a48de6-fe38-49d8-ba1b-49f2fc563e45}</ProjectGuid>
-    <RootNamespace>Chpt19</RootNamespace>
+    <ProjectGuid>{2e2ee076-4790-44c1-bcc9-55a6799ac220}</ProjectGuid>
+    <RootNamespace>자료구조Chpt02</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

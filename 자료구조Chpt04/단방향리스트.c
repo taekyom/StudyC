@@ -1,3 +1,4 @@
+/* 단방향 리스트 */
 #include<stdio.h>
 
 typedef struct node
@@ -62,12 +63,13 @@ void post_insertNode(HeadNode* h, int data)
 	}
 }
 
+/* 노드 출력 함수 */
 void print_node(HeadNode* h)
 {
 	int i = 1;
 
 	Node* curr = h->head;
-	if (curr == NULL) printf("노드가 없습니다.\n");  //curr == NULL : 모든 노드가 삭제되고 head에는 NULL값만 있음
+	if (curr == NULL) printf("노드가 없습니다.\n");  //curr == NULL : 모든 노드가 삭제되고 head에는 NULL값만 있는 경우
 
 	while(curr != NULL)    //curr이 마지막 노드에 도달할 때까지 반복
 	{
@@ -76,16 +78,15 @@ void print_node(HeadNode* h)
 		i++;
 	}
 	//curr이 마지막노드일 때는 data값 출력 후 curr->next가 NULL이 되므로 탈출
-
 }
 
 /* 전체 노드를 삭제하는 함수 */
-void all_delete(HeadNode *h)
+void all_deletenode(HeadNode *h)
 {
 	Node* curr = h->head;
 	while (curr != NULL)  //curr이 마지막 노드에 도달할 때까지 반복
 	{
-		int tmp;          //삭제할 노드의 주소를 담아둘 변수
+		Node* tmp;        //삭제할 노드의 주소를 담아둘 변수
 		tmp = curr->next;
 		free(curr);       //동적할당 반환하면 노드 삭제
 		curr = tmp;		  //curr가 다음 노드를 가리킴
@@ -113,13 +114,66 @@ Node* searchnode(HeadNode* h, int data)
 }
 
 /* (검색한)노드 1개를 삭제하는 함수 */
-void search_deleteNode(HeadNode* h, Node* d)  //Node* d : 삭제할 노드
+void removeNode(HeadNode* h, Node* d)  //Node* d : 삭제할 노드
 {
-	
-	
+	if (d == NULL)
+	{
+		printf("error : 찾으려는 노드가 존재하지 않습니다.\n");
+		return;
+	}
+
+	if (h->head == NULL)
+	{
+		printf("error : 노드가 비어있습니다.\n");
+		return;
+	}
+
+	Node* curr = h->head; //삭제할 노드
+
+	if (curr == d) //첫번째 노드를 삭제할 때
+	{
+		h->head = d->next;
+	}
+	else //첫번째 이후의 노드를 삭제할 때
+	{
+		while (curr != NULL)
+		{
+			if (curr->next == d)
+			{
+				curr->next = d->next;
+			}
+			curr = curr->next;
+		}
+	}
+	free(d); //삭제할 노드의 동적할당 해제
 }
 
+/* 중간 노드 삽입 함수 */
+void midInsert_node(HeadNode* h, Node* pn, int data) 
+{
+	Node* mid = (Node*)malloc(sizeof(Node));
+	
+	if (mid != NULL)         //mid가 마지막 노드가 아닐 때
+	{
+		mid->data = data;
+		mid->next = NULL;    //mid에 data와 next값을 할당 및 초기화하고 다음 과정 생각
 
+		if (h->head == NULL) //노드가 하나도 없는 경우 : 공백리스트일 때
+		{
+			h->head = mid;
+			mid->data = data;
+		}				     //공백리스트가 아닌 경우
+		else if (pn == NULL) //전위 노드가 존재하지 않거나 값이 잘못 전달됐을 때
+		{
+			printf("삽입할 위치를 찾을 수 없습니다.");
+		}
+		else                      //pn != NULL
+		{	                      //168/169행 순서 바뀌면 X!(중요)
+			mid->next = pn->next; //삽입할 노드의 주소값에 pn의 주소값(원래 pn뒤에 있던 노드)을 넣고 
+			pn->next = mid;	      //→ 그 다음 pn의 next에 삽입할 노드 주소값 대입
+		}
+	}
+}
 
 int main()
 {
@@ -127,12 +181,19 @@ int main()
 	post_insertNode(had, 25);      //1번째 노드 생성
 	post_insertNode(had, 35);      //1번째 노드 생성
 	post_insertNode(had, 45);      //1번째 노드 생성
+
 	print_node(had);			   //node의 데이터값 출력 함수 호출
 	printf("\n");
+
 	searchnode(had, 45);
 
 	/*all_delete(had);
 	print_node(had);*/			    //삭제 후 확인을 위해 출력
+
+	Node* d = searchNode(had, 9);
+	removeNode(had, d);
+
+	printNode(had);				    //삭제 후 남은 리스트
 
 	return 0;
 }
